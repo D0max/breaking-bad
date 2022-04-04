@@ -1,17 +1,22 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Seasons</h1>
+    <ListSeason v-bind:seasons='getSeason'/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import ListSeason from '@/components/ListSeason.vue'
+import {mapGetters} from "vuex";
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
-  }
+    ListSeason
+  },
+  computed: {
+    ...mapGetters(['getSeason'])
+  },
 }
 </script>
