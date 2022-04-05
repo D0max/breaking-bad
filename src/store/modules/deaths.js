@@ -20,13 +20,18 @@ export default {
         deathsList,
         count: deathsList.length
       }
+    },
+    getResponsibleDeaths: (state) => (name) => {
+      return state.deathsLists.filter(({responsible}) => responsible === name)
     }
   },
   actions: {
-    fetchDeathsEpisodes: ({ commit }) =>{
+    fetchDeathsEpisodes: ({ commit, rootState }) =>{
+      rootState.loading = true
       axios.get(`/deaths/`)
         .then((response) => {
           commit('SET_DEATHS', response.data)
+          rootState.loading = false
         })
     }
   }

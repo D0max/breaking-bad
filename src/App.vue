@@ -14,17 +14,18 @@
       <v-container>
         <router-view/>
       </v-container>
+      <Loader :loading="this.$store.state.loading"/>
     </v-main>
   </v-app>
 </template>
 
 <script>
+  import Loader from "./components/Loader";
 
 export default {
   name: 'App',
-
-  data: () => ({
-    //
-  }),
+  components: {
+    Loader
+  }
 };
 </script>

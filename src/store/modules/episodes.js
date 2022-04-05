@@ -15,10 +15,12 @@ export default {
     }
   },
   actions: {
-    fetchEpisodes: ({ commit }) =>{
+    fetchEpisodes: ({ commit, rootState }) =>{
+      rootState.loading = true
       axios.get(`/episodes/`)
         .then((response) => {
           commit('SET_EPISODES', response.data)
+          rootState.loading = false
         })
     }
   },

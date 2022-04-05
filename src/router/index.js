@@ -22,7 +22,12 @@ const routes = [
     path: '/characters',
     name: 'Characters',
     component: () => import('../views/Characters')
-  }
+  },
+  {
+    path: '/characters/:id',
+    name: 'CharactersById',
+    component: () => import('../views/CharactersById')
+  },
 ]
 
 const router = new VueRouter({
